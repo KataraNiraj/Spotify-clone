@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.title {
+  /* display: flex; */
+  text-align: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid gray;
+  margin-top: 10px;
+}
+.login {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+}
+.loginCard {
+  flex: 0.9;
+}
+
+.loginCard > form > div {
+  margin-bottom: 10px;
+}
+
+.loginCard > form > div > label {
+  font-weight: 700;
+}
+
+.loginCard > form > div > input[type="text"],
+.loginCard > form > div > input[type="password"] {
+  width: 98%;
+  padding: 12px 7px;
+  border-radius: 5px;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.loginCard > form > div > input[type="text"]:focus,
+.loginCard > form > div > input[type="password"]:focus {
+  border-width: 2px;
+  outline: none;
+}
+
+.loginCard > form > div > a {
+  color: black;
+}
+
+.loginAction {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.loginAction > div > input {
+  accent-color: rgb(30, 225, 96);
+}
+
+.loginAction > div {
+  margin-bottom: 20px;
+}
+
+.loginAction > div:last-child {
+  text-align: center;
+}
+
+.loginAction > div > a {
+  background-color: rgb(30, 225, 96);
+  display: block;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  width: 90%;
+  margin-top: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+
+.loginAction > div > a:hover {
+  transform: scale(1.01);
+  background-color: rgb(60, 230, 96);
+}
+
+.loginSignUpRedirect {
+  border-top: 1px solid gray;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.loginSignUpRedirect > div {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.loginSignUpRedirect > a > button {
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: 1px solid black;
+}
+
+.loginSignUpRedirect > a {
+  text-decoration: none;
+  color: black;
+}
+
+.loginSignUpRedirect > button:hover {
+  border-width: 2px;
+}
+
+@media screen and (min-width: 600px) {
+  .loginCard {
+    flex: 0.5;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .loginCard {
+    flex: 0.3;
+  }
+  .loginAction > div > button {
+    margin-top: none;
+  }
+  .loginAction {
+    flex-direction: row;
+  }
+}

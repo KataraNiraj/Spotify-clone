@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liked Page</title>
+    <script defer src="/your-path-to-fontawesome/js/brands.js"></script>
+    <script defer src="/your-path-to-fontawesome/js/solid.js"></script>
+    <script defer src="/your-path-to-fontawesome/js/fontawesome.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <style>
+      :root {
+        --primary-color: rgb(30, 225, 96);
+        --secondary-color: grey;
+        --hover-song-card-bgColor: rgb(42, 42, 42);
+      }
+
+      * {
+        margin: 0;
+      }
+
+      header {
+        display: flex;
+        flex-direction: row;
+        align-items: end;
+        background-color: #48338d;
+        padding: 10px;
+        padding-top: 100px;
+      }
+
+      header p,
+      h1 {
+        color: white;
+        font-weight: 900;
+        margin-left: 20px;
+      }
+
+      header h1 {
+        font-size: 3rem;
+      }
+
+      header div img {
+        width: 150px;
+        height: 150px;
+        box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+      }
+
+      button {
+        height: 70px;
+        width: 70px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        margin-top: 25px;
+        margin-left: 10px;
+        margin-bottom: 30px;
+        border: none;
+        transition: 0.2s;
+      }
+
+      .material-icons {
+        font-size: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      button:hover {
+        transform: scale(1.1);
+      }
+      main {
+        min-height: 500px;
+        background-image: linear-gradient(#21183f 20%, #121212 80%);
+      }
+
+      .icon-schedule,
+      .icon-favorite {
+        font-size: 30px;
+      }
+
+      .icon-favorite {
+        color: var(--primary-color);
+      }
+
+      .listOfSong {
+        padding: 0px 16px;
+      }
+
+      .listOfSong-header,
+      .listOfSong-song {
+        color: white;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px;
+      }
+
+      .listOfSong-header > div,
+      .listOfSong-song > div  {
+        flex: 8;
+      }
+      .listOfSong-header > div:first-child,
+      .listOfSong-header > div:last-child,
+      .listOfSong-song > div:first-child, 
+      .listOfSong-song > div:last-child,
+      .liked-song  {
+        flex: 2 !important;
+      }
+
+      .listOfSong-song > div:first-child {
+        width: 20px
+      }
+
+      /* HOVER STATE WHILE HOVERING OVER SONG CARD */
+      .listOfSong-song:hover {
+        cursor: pointer;
+        background-color: var(--hover-song-card-bgColor);
+
+        /* For Singer name */
+        .listOfSong-song-content div:last-child div:last-child {
+          color: white;
+        }
+
+        .listOfSong-song-index  /* Index  Number*/ {
+          display: none;
+        }
+
+        /* Index Icon */
+        .icon-play-arrow {
+          display: block;
+        }
+      }
+
+      
+      .active {
+        .listOfSong-song-content div:last-child div:first-child {
+          color: var(--primary-color);
+          font-weight: 900;
+        }
+      }
+
+      .listOfSong-header {
+        border-bottom: 1px solid var(--secondary-color);
+        color: var(--secondary-color);
+      }
+
+      .listOfSong-header-title,
+      .listOfSong-song-content {
+        width: 200px;
+      }
+
+      /* Ablum and Date Added */
+      .close {
+        display: none;
+        color: var(--secondary-color);
+        height: 40px;
+        overflow: hidden;
+      }
+
+      .listOfSong-song-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .listOfSong-song > div:last-child,  /* Time of Music */
+      .listOfSong-song-index  /* Index  Number*/ {
+        color: var(--secondary-color);
+      }
+
+      .listOfSong-song-content div img {
+        width: 40px;
+        height: 40px;
+        margin-right: 15px;
+      }
+
+      /* For song name */
+      .listOfSong-song-content div:last-child div:first-child {
+        font-size: 20px;
+        font-weight: 900;
+        height: 20px;
+        overflow:hidden;
+      }
+
+      /* Index Icon */
+      .icon-play-arrow {
+        display: none;
+        font-size: 25px;
+      }
+
+      .listOfSong-song-content div:last-child div:first-child:hover,/* For song name when hover */
+      .listOfSong-song-content div:last-child div:last-child:hover  /* For Singer name when hover*/ {
+        text-decoration: underline;
+      }
+
+      /* For Singer name */
+      .listOfSong-song-content div:last-child div:last-child {
+        font-size: 14px;
+        color: var(--secondary-color);
+        height: 20px;
+        overflow: hidden;
+      }
+
+      @media (min-width: 900px) {
+        .close {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <img
+          src="https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"
+          alt="liked_song"
+        />
+      </div>
+      <div>
+        <p>PLAYLIST</p>
+        <h1>Liked Songs</h1>
+        <p>Niraj • 5 songs</p>
+      </div>
+    </header>
+
+    <main>
+      <div>
+        <button>
+          <i class="material-icons">play_arrow</i>
+        </button>
+      </div>
+      <div>
+        <div class="listOfSong">
+
+          <!-- Header of LIST OF SONG -->
+          <div class="listOfSong-header">
+            <div>#</div>
+            <div class="listOfSong-header-title">Title</div>
+            <div class="close">Album</div>
+            <div class="close">Date added</div>
+            <div class="liked-song"></div>
+            <div>
+              <i class="material-icons icon-schedule">schedule</i>
+            </div>
+          </div>
+          </div>
+
+          <!-- SONG CARD -->
+          <div class="listOfSong-song active">
+            <div>
+              <span class="listOfSong-song-index"> 1</span
+              ><i class="material-icons icon-play-arrow">play_arrow</i>
+            </div>
+            <div class="listOfSong-song-content">
+              <div>
+                <img
+                  src="https://i.scdn.co/image/ab67616d000048510c9eb65b86f67a2e01059c87"
+                  alt="img_song"
+                />
+              </div>
+              <div>
+                <div>Curtains</div>
+                <div>Ed Sheeran</div>
+              </div>
+            </div>
+            <div class="close">`(Deluxe)</div>
+            <div class="close">15 hours ago</div>
+            <div class="liked-song">
+              <i class="material-icons icon-favorite">favorite</i>
+            </div>
+            <div>3:44</div>
+          </div>
+
+           <!-- SONG CARD -->
+           <div class="listOfSong-song">
+            <div>
+              <span class="listOfSong-song-index"> 2</span
+              ><i class="material-icons icon-play-arrow">play_arrow</i>
+            </div>
+            <div class="listOfSong-song-content">
+              <div>
+                <img
+                  src="https://i.scdn.co/image/ab67616d00001e021a2e4290b83a4c810d019fcd"
+                  alt="img_song"
+                />
+              </div>
+              <div>
+                <div>Courtesy Call</div>
+                <div>Thousand Foot Krutch </div>
+              </div>
+            </div>
+            <div class="close">The End Is Where We Beging</div>
+            <div class="close">30 minutes ago</div>
+            <div class="liked-song">
+              <i class="material-icons icon-favorite">favorite</i>
+            </div>
+            <div>12:00</div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

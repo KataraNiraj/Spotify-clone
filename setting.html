@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings</title>
+  </head>
+
+  <style>
+    :root {
+      --primary-color: rgb(30, 225, 96);
+      --secondary-color: grey;
+      --hover-song-card-bgColor: rgb(42, 42, 42);
+      --background-color: #121212;
+    }
+
+    * {
+      margin: 0;
+    }
+
+    body {
+      background-color: var(--background-color);
+      color: white;
+      padding: 20px;
+    }
+
+    /* The switch - the box around the slider */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    /* Hide default HTML checkbox */
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    /* The slider */
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+    }
+
+    input:checked + .slider {
+      background-color: var(--primary-color);
+    }
+
+    input:focus + .slider {
+      box-shadow: 0 0 1px var(--primary-color);
+    }
+
+    input:checked + .slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+
+    .lang,
+    .lib,
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    h3 {
+      font-size: 30px;
+      font-weight: 900;
+      margin: 50px 0 20px 0;
+    }
+
+    h5 {
+      font-size: 24px;
+      font-weight: 900;
+      margin: 15px 0;
+    }
+
+    p {
+      color: var(--secondary-color);
+    }
+
+    select {
+      font-size: 15px;
+      padding: 8px 20px;
+      border: none;
+      color: white;
+      background-color: var(--hover-song-card-bgColor);
+    }
+
+    .lib {
+      margin-top: 24px;
+    }
+
+    footer {
+      margin-top: 50px;
+    }
+
+    footer > div > span {
+      margin-right: 15px;
+      color: var(--secondary-color);
+    }
+
+    footer > div {
+      color: var(--secondary-color);
+    }
+
+    .settings,.lang,.lib{
+      padding: 0px 70px;
+    }
+  </style>
+  <body>
+    <main>
+      <div class="settings">
+        <h3>Settings</h3>
+      </div>
+      <div class="lang">
+        <div>
+          <h5>Language</h5>
+          <p>
+            Choose language - Changes will be applied after restarting the app
+          </p>
+        </div>
+
+        <div>
+          <select name="language" id="language">
+            <option>English</option>
+            <option>Gujarati</option>
+            <option>Hindi</option>
+            <option>Marathi</option>
+          </select>
+        </div>
+      </div>
+      <div class="lib">
+        <div>
+          <h5>Library</h5>
+          <p>Use compact library layout</p>
+        </div>
+
+        <div>
+          <label class="switch">
+            <input type="checkbox" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div>
+        <span>Legal</span>
+        <span>Privacy center</span>
+        <span>Privacy Policy</span>
+        <span>Cookies</span>
+        <span>About Ads</span>
+      </div>
+
+      <div>&copy; 2023 Spotify AB</div>
+    </footer>
+  </body>
+</html>
